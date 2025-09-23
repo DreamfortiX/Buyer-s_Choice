@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Reviews" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Prevent white flash: set window background to splash background color -->
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <!-- Disable preview window to avoid initial white preview -->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="Theme.Reviews" parent="Base.Theme.Reviews" />
+</resources>

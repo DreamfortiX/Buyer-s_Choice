@@ -1,0 +1,12 @@
+<resources>
+    <!-- Android 12+ SplashScreen attributes on app theme -->
+    <style name="Theme.Reviews" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your theme as needed -->
+        
+        <!-- System splash screen config (Android 12+) -->
+        <item name="android:windowSplashScreenBackground">@color/background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_placeholder</item>
+        <item name="android:windowSplashScreenAnimationDuration">400</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+    </style>
+</resources>

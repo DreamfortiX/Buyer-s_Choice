@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#6366F1</color>
+    <color name="primary_dark">#4F46E5</color>
+    <color name="secondary">#10B981</color>
+    <color name="background">#0A0F1C</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="error">#EF4444</color>
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="text_primary">#1E293B</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="positive_sentiment">#10B981</color>
+    <color name="negative_sentiment">#EF4444</color>
+    <color name="neutral_sentiment">#94A3B8</color>
+    <!-- New for home screen cards -->
+    <color name="card_background">#800034F8</color>
+    <color name="feature_card_background">#802D3748</color>
+    <!-- Analyze screen specific -->
+    <color name="header_card_background">#801A237E</color>
+    <color name="input_card_background">#802D3748</color>
+    <color name="error_card_background">#80FF6B6B</color>
+    <color name="tips_card_background">#40334D71</color>
+    <!-- Result screen specific -->
+    <color name="main_card_background">#801A237E</color>
+    <color name="message_card_background">#402D3748</color>
+</resources>
