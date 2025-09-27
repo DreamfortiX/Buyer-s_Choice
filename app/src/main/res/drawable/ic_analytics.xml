@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Analytics icon: bars chart -->
+    <path android:fillColor="#FFFFFFFF" android:pathData="M4,18h3V10H4v8zM10.5,18h3V6h-3v12zM17,18h3v-4h-3v4z"/>
+</vector>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Simple trophy cup icon -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M5,3h14v2h-2c0,2.76 -2.24,5 -5,5s-5,-2.24 -5,-5H5V3zM7,7c0.92,1.84 2.86,3 5,3s4.08,-1.16 5,-3h1c0,3.04 -2.24,5.54 -5.14,5.95c-0.27,0.04 -0.55,0.05 -0.86,0.05v2h3v2H9v-2h3v-2c-0.31,0 -0.59,-0.01 -0.86,-0.05C8.24,12.54 6,10.04 6,7h1z"/>
+</vector>

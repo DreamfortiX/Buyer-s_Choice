@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Disabled state: 50% alpha of primary -->
+    <item android:alpha="0.5" android:color="@color/primary" android:state_enabled="false"/>
+    <!-- Pressed state: darker primary -->
+    <item android:color="@color/primary_dark" android:state_pressed="true"/>
+    <!-- Default state -->
+    <item android:color="@color/primary"/>
+</selector>
