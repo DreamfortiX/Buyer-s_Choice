@@ -2,21 +2,27 @@ package com.example.reviews.ui
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputFilter
 import android.text.TextWatcher
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.OvershootInterpolator
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.reviews.R
-import com.example.reviews.data.SentimentResult
-import com.example.reviews.data.analyzeSentiment
 import com.example.reviews.databinding.ActivityAnalyzeBinding
 import com.example.reviews.utils.TextWatcherHelper
+import androidx.lifecycle.lifecycleScope
+import com.example.reviews.data.network.AnalyzeRequest
+import com.example.reviews.data.network.RetrofitClient
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import android.util.Log
+import androidx.core.view.isVisible
 
 class AnalyzeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAnalyzeBinding
@@ -73,6 +79,8 @@ class AnalyzeActivity : AppCompatActivity() {
         TextWatcherHelper.setupPlaceholderVisibility(binding.reviewEditText, binding.placeholderText)
 
         // Character count and hide error on typing
+        // Enforce 5000 character hard limit
+        binding.reviewEditText.filters = arrayOf(InputFilter.LengthFilter(5000))
         binding.reviewEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -99,8 +107,9 @@ class AnalyzeActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateCharacterCount(count: Int) {
-        binding.characterCount.text = "$count/1000 characters"
+        binding.characterCount.text = "$count/5000 characters"
     }
 
     private fun updateTextFieldBackground(hasFocus: Boolean) {
@@ -120,7 +129,7 @@ class AnalyzeActivity : AppCompatActivity() {
     }
 
     private fun hideErrorMessage() {
-        if (binding.errorCard.visibility == View.VISIBLE) {
+        if (binding.errorCard.isVisible) {
             ObjectAnimator.ofPropertyValuesHolder(
                 binding.errorCard,
                 android.animation.PropertyValuesHolder.ofFloat(View.ALPHA, 1f, 0f),
@@ -136,16 +145,36 @@ class AnalyzeActivity : AppCompatActivity() {
         isLoading = true
         updateButtonState()
 
-        analyzeSentiment(reviewText) { result: SentimentResult ->
-            runOnUiThread {
+        lifecycleScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    RetrofitClient.api.analyze(AnalyzeRequest(reviewText = reviewText))
+                }
                 isLoading = false
                 updateButtonState()
-                val intent = Intent(this, ResultActivity::class.java).apply {
-                    putExtra("sentiment", result.sentiment)
-                    putExtra("confidence", result.confidence)
+                val intent = Intent(this@AnalyzeActivity, ResultActivity::class.java).apply {
+                    putExtra("sentiment", response.sentiment)
+                    putExtra("confidence", response.confidence)
+                    putExtra("reviewText", reviewText)
+                    response.distribution?.let { dist ->
+                        putExtra("dist_positive", dist["positive"] ?: -1)
+                        putExtra("dist_neutral", dist["neutral"] ?: -1)
+                        putExtra("dist_negative", dist["negative"] ?: -1)
+                    }
                 }
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            } catch (e: Exception) {
+                isLoading = false
+                updateButtonState()
+                Log.e("AnalyzeActivity", "Analyze request failed", e)
+                val isDebug = (applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
+                val msg = if (isDebug) {
+                    "Failed to analyze: ${e.localizedMessage ?: e.javaClass.simpleName}"
+                } else {
+                    "Failed to analyze. Check your connection and try again."
+                }
+                showErrorMessage(msg)
             }
         }
     }

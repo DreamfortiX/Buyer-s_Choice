@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -57,11 +58,36 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
+    // Coroutines (used across the app)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+    // Room (SQLite)
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-paging:2.6.1")
+
     // Charts
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
     // CardView for home UI cards
     implementation("androidx.cardview:cardview:1.0.0")
+
+    // RecyclerView for History list
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    // Paging 3 for large history lists
+    implementation("androidx.paging:paging-runtime-ktx:3.3.2")
+
+    // Glide for image loading (word cloud)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
+
+    // Shimmer for loading placeholders
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+
+    // Lottie for vector animations
+    implementation("com.airbnb.android:lottie:6.1.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

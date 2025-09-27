@@ -3,5 +3,8 @@
     <style name="Base.Theme.Reviews" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Match splash background in dark mode to avoid flash -->
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
 </resources>

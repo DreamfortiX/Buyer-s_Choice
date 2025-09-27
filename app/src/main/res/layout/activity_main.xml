@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -28,7 +28,8 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/transparent"
             app:title="@string/app_name"
-            app:titleTextColor="@android:color/white"
+            app:menu="@menu/menu_main"
+            app:navigationIconTint="@android:color/white"
             app:titleTextStyle="@style/ToolbarTitle" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -48,37 +49,23 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/welcomeCard"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:alpha="1"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="16dp"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="20dp"
                 android:layout_marginBottom="32dp"
                 app:cardBackgroundColor="@color/card_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/welcome_card_gradient"
+                    android:layout_height="wrap_content"
+                    android:minHeight="180dp"
+                    android:background="@drawable/premium_gradient"
                     android:orientation="horizontal"
                     android:padding="24dp"
                     android:gravity="center_vertical">
 
-                    <LinearLayout
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/circle_white_alpha"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
-                            android:src="@drawable/ic_sentiment_40"
-                            android:tint="@android:color/white" />
-
-                    </LinearLayout>
-
-                    <Space android:layout_width="16dp" android:layout_height="0dp" />
-
+                    <!-- Text Content -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -90,7 +77,7 @@
                             android:layout_height="wrap_content"
                             android:text="Welcome to ReviewAnalyzer"
                             android:textColor="@android:color/white"
-                            android:textSize="18sp"
+                            android:textSize="26sp"
                             android:textStyle="bold"
                             android:maxLines="1"
                             android:ellipsize="end" />
@@ -98,25 +85,50 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="AI-powered insights for smarter decisions"
-                            android:textColor="#E6FFFFFF"
-                            android:textSize="14sp"
+                            android:text="AI-powered insights for smarter shopping decisions"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="15sp"
                             android:maxLines="2"
                             android:ellipsize="end"
-                            android:layout_marginTop="4dp" />
+                            android:layout_marginTop="8dp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+                            <!-- CTA Button -->
+                            <Button
+                                android:id="@+id/getStartedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Get Started"
+                                android:textColor="@color/primary"
+                                android:background="@drawable/rounded_white_button"
+                                android:layout_marginTop="16dp"
+                                android:paddingHorizontal="20dp"
+                                android:textStyle="bold" />
+                            <!-- Decorative AI Icon -->
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                />
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_ai_brain"
+                                android:layout_marginStart="16dp"
+                                app:tint="#80FFFFFF" />
+                        </LinearLayout>
+
+
 
                     </LinearLayout>
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="24dp"-->
-<!--                        android:layout_height="24dp"-->
-<!--                        android:src="@drawable/ic_chevron_right_24"-->
-<!--                        android:tint="#B3FFFFFF" />-->
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -339,6 +351,86 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Get detailed insights"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="14sp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/circle_white_alpha_small"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_chevron_right_24"
+                            android:tint="@android:color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/featureCard4"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:alpha="1"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/feature_card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/feature_gradient_2"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/rounded_white_alpha"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@android:drawable/ic_menu_recent_history"
+                            android:tint="@android:color/white" />
+
+                    </LinearLayout>
+
+                    <Space android:layout_width="16dp" android:layout_height="0dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="History"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="View past analyses"
                             android:textColor="#CCFFFFFF"
                             android:textSize="14sp"
                             android:maxLines="2"

@@ -5,68 +5,221 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
     android:background="@color/background"
     tools:context=".ui.ComparisonActivity">
 
+    <!-- Header Section -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="@color/surface_variant"
+        app:cardElevation="8dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                app:title="Compare Products"
+                app:titleTextColor="@android:color/white"
+                app:titleTextStyle="@style/ToolbarTitle"
+                app:navigationIcon="@drawable/ic_arrow_back_white"
+                app:menu="@menu/comparison_menu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Select exactly 2 products to compare sentiment analysis"
+                android:textColor="#80FFFFFF"
+                android:textSize="14sp"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_info_outline" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Search Section -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:queryHint="Search products..."
+            android:background="@android:color/transparent"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Products Grid Section -->
     <TextView
-        android:id="@+id/tv_title_compare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Compare Products"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Available Products"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Select 2-4 products to compare sentiment analysis"
-        android:textColor="#CCFFFFFF" />
-
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerProducts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="12dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        tools:listitem="@layout/item_product_selection" />
 
-        <LinearLayout
-            android:id="@+id/container_products"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-    <ProgressBar
+    <!-- Loading Indicator -->
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/progress_compare"
-        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_animation"
         android:visibility="gone" />
 
+    <!-- Selection Counter -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/selectionCounterCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/primary_color"
+        app:cardElevation="4dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvSelectionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="2 products selected"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Action Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_compare"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginTop="12dp"
-        android:text="Compare Products (0 selected)"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/compare_products"
         android:textAllCaps="false"
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/btn_primary_bg"
-        app:cornerRadius="16dp"
-        android:enabled="false" />
+        app:cornerRadius="28dp"
+        app:icon="@drawable/ic_compare_arrows"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        android:enabled="false"
+        style="@style/Widget.Material3.Button.ElevatedButton" />
 
-    <TextView
-        android:id="@+id/tv_compare_result"
+    <!-- Top Pick Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/topPickCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:textColor="@android:color/white"
-        tools:text="Recommended: Product A (85% Positive)\n- Product A: +85% / ~10% / -5%\n- Product B: +70% / ~20% / -10%" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/top_pick_gradient"
+        app:cardElevation="8dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_trophy"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                app:tint="@color/gold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTopPickTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Top Pick"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTopPick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Product A" />
+
+                <TextView
+                    android:id="@+id/tvSentimentScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="14sp"
+                    tools:text="85% Positive Sentiment" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_chevron_right"
+                android:layout_gravity="center"
+                app:tint="@android:color/white" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

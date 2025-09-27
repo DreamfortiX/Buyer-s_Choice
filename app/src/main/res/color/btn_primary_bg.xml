@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Disabled: 50% alpha of primary -->
     <item android:alpha="0.5" android:color="@color/primary" android:state_enabled="false"/>
+    <!-- Pressed: darker primary -->
     <item android:color="@color/primary_dark" android:state_pressed="true"/>
-    <item android:color="@color/primary"/>
+    <!-- Default enabled state -->
+    <item android:color="@color/primary_for_button"/>
 </selector>

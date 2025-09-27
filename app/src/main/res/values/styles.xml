@@ -5,4 +5,14 @@
         <item name="android:textStyle">bold</item>
         <item name="android:alpha">0.9</item>
     </style>
+    <style name="ExpandedTitleStyle" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="CollapsedTitleStyle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>
