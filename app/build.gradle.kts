@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.reviews"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -64,6 +64,8 @@ dependencies {
     // Room (SQLite)
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
+    implementation(libs.androidx.animation.core)
+    implementation(libs.androidx.foundation.layout)
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-paging:2.6.1")
 
@@ -92,4 +94,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }

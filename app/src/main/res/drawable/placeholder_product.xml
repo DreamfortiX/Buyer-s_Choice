@@ -1,0 +1,13 @@
+<!-- res/drawable/placeholder_product.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path
+        android:fillColor="#F5F5F5"
+        android:pathData="M0,0h100v100h-100z"/>
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M50,50m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0"/>
+</vector>

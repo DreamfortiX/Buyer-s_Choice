@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white"
+    android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/imageProduct"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_product"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- Product Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@+id/imageProduct"
+            app:layout_constraintEnd_toStartOf="@+id/layoutActions"
+            app:layout_constraintTop_toTopOf="@+id/imageProduct">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apple iPhone 13 Pro Max"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_semibold"/>
+
+            <!-- Category -->
+            <TextView
+                android:id="@+id/textCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Electronics • Smartphones"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <!-- Rating -->
+            <LinearLayout
+                android:id="@+id/layoutRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_star"
+                    android:tint="@color/warning"/>
+
+                <TextView
+                    android:id="@+id/textRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.7"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_dark"
+                    android:layout_marginStart="2dp"
+                    android:fontFamily="@font/montserrat_medium"/>
+
+                <TextView
+                    android:id="@+id/textReviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(12.5k reviews)"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+            </LinearLayout>
+
+            <!-- Price -->
+            <LinearLayout
+                android:id="@+id/layoutPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/textPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$999.99"
+                    android:textSize="16sp"
+                    android:textColor="@color/primary_color"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/montserrat_bold"/>
+
+                <TextView
+                    android:id="@+id/textOriginalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$1,099.99"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:id="@+id/layoutActions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageProduct">
+
+            <!-- Favorite Button -->
+            <ImageView
+                android:id="@+id/imageFavorite"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_favorite_border"
+                android:tint="@color/gray"
+                android:padding="4dp"/>
+
+            <!-- Popularity Score -->
+            <TextView
+                android:id="@+id/textPopularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔥 8.7"
+                android:textSize="10sp"
+                android:textColor="@color/white"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:background="@drawable/badge_popularity"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_medium"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

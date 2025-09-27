@@ -10,6 +10,7 @@ object RetrofitClient {
     // Change to your device/server IP if testing on a physical device
     private const val BASE_URL = "http://10.98.64.244:5000/"
 
+
     private val logging = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }

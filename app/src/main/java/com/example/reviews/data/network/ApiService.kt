@@ -8,7 +8,10 @@ import retrofit2.http.Path
 // Request/Response models for Flask /analyze
 
 data class AnalyzeRequest(
-    @SerializedName("review_text") val reviewText: String
+    @SerializedName("review_text") val reviewText: String,
+    // Optional flags; backend may ignore if unsupported
+    @SerializedName("detect_fake") val detectFake: Boolean? = null,
+    @SerializedName("product_id") val productId: String? = null
 )
 
 data class AnalyzeResponse(

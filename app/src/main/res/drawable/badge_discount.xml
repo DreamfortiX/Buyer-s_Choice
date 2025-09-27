@@ -1,0 +1,18 @@
+<!-- res/drawable/badge_discount.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="24dp"
+    android:viewportWidth="48"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF3B30"
+        android:pathData="M0,0h48v24h-48z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,6h24v12h-24z"
+        android:strokeColor="#FF3B30"
+        android:strokeWidth="1"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M16,8h16v8h-16z"/>
+</vector>

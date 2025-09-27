@@ -1,204 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/splash_background"
     android:padding="24dp">
 
-    <!-- Background Gradient Orbs -->
-    <View
-        android:id="@+id/backgroundOrb1"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:background="@drawable/gradient_orb_pink"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:alpha="0.1" />
+        <!-- Background Gradient -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_background">
 
-    <View
-        android:id="@+id/backgroundOrb2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/gradient_orb_red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:alpha="0.1" />
+            <!-- Main Content Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="40dp">
 
-    <!-- Glow Effect Behind Logo -->
-    <View
-        android:id="@+id/glowEffect"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/glow_circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <!-- AI Icon with Animation -->
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieAnimationView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:lottie_rawRes="@raw/ai_brain"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    android:layout_marginBottom="20dp"/>
 
-    <!-- Main Logo -->
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:src="@drawable/worldwide"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <!-- App Name -->
+                <TextView
+                    android:id="@+id/appNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ai_recommend"
+                    android:textSize="42sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_marginBottom="8dp"/>
 
-    <!-- Floating Particles -->
-    <View
-        android:id="@+id/particle1"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:background="@drawable/particle_circle"
-        android:alpha="0.3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <!-- Tagline -->
+                <TextView
+                    android:id="@+id/taglineText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Smart Product Recommendations"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:alpha="0.8"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_marginBottom="40dp"/>
 
-    <View
-        android:id="@+id/particle2"
-        android:layout_width="12dp"
-        android:layout_height="12dp"
-        android:background="@drawable/particle_circle"
-        android:alpha="0.2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <!-- Three Techniques Row -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="30dp">
 
-    <!-- Additional colorful particles -->
-    <ImageView
-        android:id="@+id/particle3"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:src="@drawable/particle_star"
-        android:tint="#FFA46EFF"
-        android:alpha="0.6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                    <!-- Cosine Similarity -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="12dp">
 
-    <ImageView
-        android:id="@+id/particle4"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:src="@drawable/particle_hexagon"
-        android:tint="#FF45B7D1"
-        android:alpha="0.6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/ic_cosine"
+                            app:tint="@color/cosine_color" />
 
-    <!-- Optional App Name Text -->
-    <ImageView
-        android:id="@+id/particle5"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:alpha="0.6"
-        android:src="@drawable/particle_sparkle"
-        android:tint="#FF4ECDC4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.676"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="37dp"
-        tools:ignore="MissingConstraints" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cosine"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="8dp"/>
 
-    <TextView
-        android:id="@+id/appName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buyer’s Choice"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:alpha="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        android:layout_marginTop="32dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Similarity"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
 
-    <!-- Lottie loading animation (optional) -->
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loadingAnimation"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loading_animation"
-        app:layout_constraintTop_toBottomOf="@id/appName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:visibility="gone" />
+                    <!-- Decision Tree -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="12dp">
 
-    <!-- Loading Indicator -->
-    <ProgressBar
-        android:id="@+id/loadingIndicator"
-        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/appName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/ic_decision_tree"
+                            app:tint="@color/decision_tree_color" />
 
-    <!-- Three-dot pulse loading as alternative -->
-    <LinearLayout
-        android:id="@+id/dotsLoading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/appName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Decision"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="8dp"/>
 
-        <View
-            android:id="@+id/dot1"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/dot_pulse"
-            android:layout_margin="4dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tree"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
 
-        <View
-            android:id="@+id/dot2"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/dot_pulse"
-            android:layout_margin="4dp" />
+                    <!-- GNN -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="12dp">
 
-        <View
-            android:id="@+id/dot3"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/dot_pulse"
-            android:layout_margin="4dp" />
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/ic_gnn"
+                            app:tint="@color/gnn_color" />
 
-    </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Graph"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="8dp"/>
 
-    <!-- Optional status text (e.g., Connecting..., Loading data...) -->
-    <TextView
-        android:id="@+id/statusText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
-        android:alpha="0.8"
-        app:layout_constraintTop_toBottomOf="@id/loadingIndicator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        tools:visibility="visible" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Neural Net"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
 
+                <!-- Loading Text with Progress -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:id="@+id/loadingText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Initializing AI Models..."
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Progress Bar -->
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="200dp"
+                        android:layout_height="6dp"
+                        android:progressTint="@color/primary_color"
+                        android:progressBackgroundTint="@color/white"
+                        android:indeterminate="false"/>
+
+                    <!-- Progress Percentage -->
+                    <TextView
+                        android:id="@+id/progressText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="8dp"/>
+
+                    <!-- Loading Steps -->
+                    <TextView
+                        android:id="@+id/stepText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loading dataset..."
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:alpha="0.7"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Footer -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Powered by AI/ML"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:alpha="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="20dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

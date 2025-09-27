@@ -15,6 +15,7 @@
     <color name="negative_sentiment">#EF4444</color>
     <color name="neutral_sentiment">#94A3B8</color>
     <color name="positive_green">#10B981</color>
+    <color name="chip_background">#F1F3F4</color>
     <!-- New for home screen cards -->
     <color name="card_background">#800034F8</color>
     <color name="feature_card_background">#802D3748</color>
@@ -31,4 +32,54 @@
     <color name="primary_color">#6366F1</color>
     <color name="top_pick_gradient">#402D3748</color>
     <color name="gold">#FFD54F</color>
+        <!-- Splash Screen Gradient Colors -->
+        <color name="splash_background">#1a237e</color> <!-- Dark Blue -->
+        <color name="splash_gradient_start">#1a237e</color> <!-- Dark Blue -->
+        <color name="splash_gradient_end">#311b92</color> <!-- Deep Purple -->
+
+        <!-- Technique Colors (Matching your icons) -->
+        <color name="cosine_color">#4285F4</color> <!-- Google Blue -->
+        <color name="decision_tree_color">#34A853</color> <!-- Google Green -->
+        <color name="gnn_color">#EA4335</color> <!-- Google Red -->
+
+        <!-- Alternative Technique Colors (if you want different ones) -->
+        <!-- <color name="cosine_color">#2196F3</color> --> <!-- Material Blue -->
+        <!-- <color name="decision_tree_color">#4CAF50</color> --> <!-- Material Green -->
+        <!-- <color name="gnn_color">#9C27B0</color> --> <!-- Material Purple -->
+
+        <color name="primary_light">#FF9A6A</color> <!-- Light Orange -->
+
+        <!-- Secondary Colors -->
+        <color name="secondary_color">#4285F4</color> <!-- Blue -->
+        <color name="secondary_dark">#3367D6</color> <!-- Dark Blue -->
+        <color name="secondary_light">#76A7FA</color> <!-- Light Blue -->
+
+        <!-- Text Colors -->
+        <color name="white">#FFFFFF</color>
+        <color name="black">#000000</color>
+        <color name="gray_light">#F5F5F5</color>
+        <color name="gray">#9E9E9E</color>
+        <color name="gray_dark">#424242</color>
+
+        <!-- Background Colors -->
+        <color name="background_light">#FFFFFF</color>
+        <color name="background_dark">#121212</color>
+        <color name="info">#2196F3</color>
+
+        <!-- Transparent Colors -->
+        <color name="transparent">#00000000</color>
+        <color name="white_50">#80FFFFFF</color>
+        <color name="white_20">#33FFFFFF</color>
+        <color name="black_50">#80000000</color>
+        <color name="black_20">#33000000</color>
+
+        <!-- Gradient Colors for Other Screens -->
+        <color name="gradient_start">#667eea</color>
+        <color name="gradient_middle">#764ba2</color>
+        <color name="gradient_end">#f093fb</color>
+
+        <!-- Card Colors -->
+        <color name="card_background_light">#FFFFFF</color>
+        <color name="card_background_dark">#1E1E1E</color>
+        <color name="card_elevation_color">#0D47A1</color>
 </resources>
